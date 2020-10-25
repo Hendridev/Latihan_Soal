@@ -32,7 +32,7 @@ class database{
 
     function insert_user($nama_user,$kelas_user,$skor){
         $insert = mysqli_query($this->koneksi,"INSERT INTO rekapitulasi VALUES('','$nama_user','$kelas_user','$skor')");
-        $query = mysqli_query($this->koneksi,"SELECT * FROM rekapitulasi WHERE nama_user='$nama_user'");
+        $query = mysqli_query($this->koneksi,"SELECT * FROM rekapitulasi WHERE nama_user='$nama_user' AND kelas_user='$kelas_user'");
         $data_user = $query->fetch_array();
         $_SESSION['nama_user'] = $data_user['nama_user'];
         $_SESSION['nama_kelas'] = $data_user['kelas_user'];
